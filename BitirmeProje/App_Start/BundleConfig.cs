@@ -42,6 +42,8 @@ namespace CodeRepository.Web
                       "~/Content/bootstrap.min.css", "~/Content/magnific-popup.css",
                       "~/Content/jquery-ui.css", "~/Content/owl.carousel.min.css", "~/Content/owl.theme.default.min.css",
                       "~/Content/aos.css", "~/Content/fancybox.min.css", "~/Content/style.css"));
+            bundles.Add(new StyleBundle("~/Content/css/admin").Include("~/Content/admincss/bootstrap.min.css"
+                , "~/Content/admincss/owl.carousel.min.css", "~/Content/admincss/style.css", "~/Content/admincss/tempusdominus-bootstrap-4.min.css"));
         }
     }
 }

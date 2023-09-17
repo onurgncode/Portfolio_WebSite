@@ -24,6 +24,7 @@ namespace BitirmeProje.Models
         public Nullable<int> UYEID { get; set; }
         public Nullable<int> KATEID { get; set; }
         public string BLOGKUCUKYAZI { get; set; }
+        public Nullable<System.DateTime> BLOGDATE { get; set; }
     
         public virtual KATEGORILER KATEGORILER { get; set; }
         public virtual UYELER UYELER { get; set; }

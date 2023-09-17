@@ -53,10 +53,16 @@
             <div class="main-menu">
                 <ul class="js-clone-nav">
                     <li><a href="#section-home" class="nav-link">Home</a></li>
-                    <li><a href="#section-home" class="nav-link">Giris Yap</a></li>
+                    @if (Session["uyem"] == null)
+                    {
+                        @Html.ActionLink("Giriş Yap","login", "Admin", null, new { @class="nav-link"})
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Admin","index", "Admin", null, new { @class = "nav-link" })
+                    }
                     <li><a href="#section-photos" class="nav-link">Photos</a></li>
                     <li><a href="#section-about" class="nav-link">About</a></li>
-                    <li><a href="#section-testimonial" class="nav-link">Testimonial</a></li>
                     <li><a href="#section-blog" class="nav-link">Blog</a></li>
                     <li><a href="#section-contact" class="nav-link">Contact</a></li>
                 </ul>

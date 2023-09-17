@@ -1,0 +1,52 @@
+﻿@model IEnumerable<BitirmeProje.Models.BLOGLAR>
+
+@{
+    ViewBag.Title = "BlogListele";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>BlogListele</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-active">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BLOGAD)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BLOGLOGO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KATEGORILER.KATEAD)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UYELER.UYEAD)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.BLOGAD)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BLOGLOGO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KATEGORILER.KATEAD)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UYELER.UYEAD)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "BlogDuzen", new { id=item.BLOGID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.BLOGID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.BLOGID })
+        </td>
+    </tr>
+}
+
+</table>

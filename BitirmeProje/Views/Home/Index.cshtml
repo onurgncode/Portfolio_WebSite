@@ -1,4 +1,7 @@
-﻿@{
+﻿
+@model PagedList.IPagedList<BitirmeProje.Models.BLOGLAR>
+@using PagedList.Mvc
+@{
     ViewBag.Title = "Home Page";
 }
 
@@ -56,89 +59,6 @@
 
 
 <!--Referance-->
-
-<section class="site-section" id="section-testimonial">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8 text-center">
-                <h2 class="heading">Testimonial</h2>
-
-                <div class="row justify-content-center">
-                    <div class="col-md-12">
-
-                        <div class="owl-carousel slide-one-item home-slider">
-
-                            <div class="testimony text-center px-md-4">
-                                <figure class="mx-auto d-inline-block">
-                                    <img src="images/person_2.jpg" alt="Free Template by Untree.co" class="mx-auto img-fluid w-25 rounded-circle">
-                                </figure>
-                                <p class="text-black"><strong>Jorge Smith</strong></p>
-                                <blockquote>
-                                    <p>&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde tenetur quis facilis quam optio voluptate totam placeat, doloremque. Sit repellat ipsum dolor fugit similique itaque maxime saepe ipsam. Velit, harum!&rdquo;</p>
-                                </blockquote>
-                            </div>
-
-                            <div class="testimony text-center px-md-4">
-                                <figure class="mx-auto d-inline-block">
-                                    <img src="images/person_3.jpg" alt="Free Template by Untree.co" class="mx-auto img-fluid w-25 rounded-circle">
-                                </figure>
-                                <p class="text-black"><strong>Ben Crawford</strong></p>
-                                <blockquote>
-                                    <p>&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde tenetur quis facilis quam optio voluptate totam placeat, doloremque. Sit repellat ipsum dolor fugit similique itaque maxime saepe ipsam. Velit, harum!&rdquo;</p>
-                                </blockquote>
-                            </div>
-
-                            <div class="testimony text-center px-md-4">
-                                <figure class="mx-auto d-inline-block">
-                                    <img src="images/person_2.jpg" alt="Free Template by Untree.co" class="mx-auto img-fluid w-25 rounded-circle">
-                                </figure>
-                                <p class="text-black"><strong>Jorge Smith</strong></p>
-                                <blockquote>
-                                    <p>&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde tenetur quis facilis quam optio voluptate totam placeat, doloremque. Sit repellat ipsum dolor fugit similique itaque maxime saepe ipsam. Velit, harum!&rdquo;</p>
-                                </blockquote>
-                            </div>
-
-                            <div class="testimony text-center px-md-4">
-                                <figure class="mx-auto d-inline-block">
-                                    <img src="images/person_3.jpg" alt="Free Template by Untree.co" class="mx-auto img-fluid w-25 rounded-circle">
-                                </figure>
-                                <p class="text-black"><strong>Ben Crawford</strong></p>
-                                <blockquote>
-                                    <p>&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde tenetur quis facilis quam optio voluptate totam placeat, doloremque. Sit repellat ipsum dolor fugit similique itaque maxime saepe ipsam. Velit, harum!&rdquo;</p>
-                                </blockquote>
-                            </div>
-
-                            <div class="testimony text-center px-md-4">
-                                <figure class="mx-auto d-inline-block">
-                                    <img src="images/person_2.jpg" alt="Free Template by Untree.co" class="mx-auto img-fluid w-25 rounded-circle">
-                                </figure>
-                                <p class="text-black"><strong>Jorge Smith</strong></p>
-                                <blockquote>
-                                    <p>&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde tenetur quis facilis quam optio voluptate totam placeat, doloremque. Sit repellat ipsum dolor fugit similique itaque maxime saepe ipsam. Velit, harum!&rdquo;</p>
-                                </blockquote>
-                            </div>
-
-                            <div class="testimony text-center px-md-4">
-                                <figure class="mx-auto d-inline-block">
-                                    <img src="images/person_3.jpg" alt="Free Template by Untree.co" class="mx-auto img-fluid w-25 rounded-circle">
-                                </figure>
-                                <p class="text-black"><strong>Ben Crawford</strong></p>
-                                <blockquote>
-                                    <p>&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde tenetur quis facilis quam optio voluptate totam placeat, doloremque. Sit repellat ipsum dolor fugit similique itaque maxime saepe ipsam. Velit, harum!&rdquo;</p>
-                                </blockquote>
-                            </div>
-
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-
 <!--Blog-->
 
 <section class="site-section" id="section-blog">
@@ -146,58 +66,33 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="row">
-                    <h2 class="heading" data-aos="fade-up">Blog</h2>
-                    <div class="col-md-12 mb-4" data-aos="fade-up">
-                        <div class="d-md-flex d-block blog-entry align-items-start">
-                            <div class="mr-0 mr-md-5 mb-3 img-wrap"><a href="#"><img src="images/img_1.jpg" alt="Image" class="img-fluid mb-0"></a></div>
-                            <div>
-                                <h2 class="mt-0 mb-2"><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit</a></h2>
-                                <div class="meta mb-3">Posted by Ben Jones on <a href="#">Jan 18, 2019</a></div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis aliquid doloremque qui, saepe alias eum?</p>
-                            </div>
-                        </div>
-                    </div>
+                    @foreach (var item in Model)
+                    {
 
-                    <div class="col-md-12 mb-4" data-aos="fade-up">
-                        <div class="d-md-flex d-block blog-entry align-items-start">
-                            <div class="mr-0 mr-md-5 mb-3 img-wrap"><a href="#"><img src="images/img_2.jpg" alt="Image" class="img-fluid mb-0"></a></div>
-                            <div>
-                                <h2 class="mt-0 mb-2"><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit</a></h2>
-                                <div class="meta mb-3">Posted by Ben Jones on <a href="#">Jan 18, 2019</a></div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis aliquid doloremque qui, saepe alias eum?</p>
+                        <h2 class="heading" data-aos="fade-up">Bloglar</h2>
+                        <div class="col-md-12 mb-4" data-aos="fade-up">
+                            <div class="d-md-flex d-block blog-entry align-items-start">
+                                <div class="mr-0 mr-md-5 mb-3 img-wrap"><a href="#"><img src="@item.BLOGLOGO" alt="Image" class="img-fluid mb-0"></a></div>
+                                <div>
+                                    <h2 class="mt-0 mb-2"><a href="#">@Html.DisplayFor(modelItem => item.BLOGAD)</a></h2>
+                                    <div class="meta mb-3">
+                                        Post Yazar @if (item.UYEID == item.UYELER.ID)
+                                        {
+                                            <b> @item.UYELER.UYEAD</b>
+                                        }
+                                        <a href="#">@item.BLOGDATE</a>
+                                    </div>
+                                    <p>@Html.DisplayFor(modelItem => item.BLOGKUCUKYAZI)</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    }
 
-                    <div class="col-md-12 mb-4" data-aos="fade-up">
-                        <div class="d-md-flex d-block blog-entry align-items-start">
-                            <div class="mr-0 mr-md-5 mb-3 img-wrap"><a href="#"><img src="images/img_3.jpg" alt="Image" class="img-fluid mb-0"></a></div>
-                            <div>
-                                <h2 class="mt-0 mb-2"><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit</a></h2>
-                                <div class="meta mb-3">Posted by Ben Jones on <a href="#">Jan 18, 2019</a></div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis aliquid doloremque qui, saepe alias eum?</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-12 mb-4" data-aos="fade-up">
-                        <div class="d-md-flex d-block blog-entry align-items-start">
-                            <div class="mr-0 mr-md-5 mb-3 img-wrap"><a href="#"><img src="images/img_4.jpg" alt="Image" class="img-fluid mb-0"></a></div>
-                            <div>
-                                <h2 class="mt-0 mb-2"><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit</a></h2>
-                                <div class="meta mb-3">Posted by Ben Jones on <a href="#">Jan 18, 2019</a></div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis aliquid doloremque qui, saepe alias eum?</p>
-                            </div>
-                        </div>
-                    </div>
 
                     <div class="col-12 text-center">
                         <div class="custom-pagination">
-                            <span>1</span>
-                            <a href="#">2</a>
-                            <a href="#">3</a>
-                            <span>...</span>
-                            <a href="#">7</a>
+                            @Html.PagedListPager(Model, page => Url.Action("Index", new { page, pageSize = Model.PageSize }))
+
                         </div>
                     </div>
                 </div>

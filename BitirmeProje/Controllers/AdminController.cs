@@ -9,6 +9,9 @@ namespace BitirmeProje.Controllers
     public class AdminController : Controller
     {
         DbWebSiteEntities db = new DbWebSiteEntities();
+
+        
+
         // GET: Admin
         public ActionResult login()
         {
@@ -44,9 +47,35 @@ namespace BitirmeProje.Controllers
         }
         public ActionResult BlogListele()
         {
+            Session["uyem"] = 1;
             if (Session["uyem"] != null)
             {
                 var listele = db.BLOGLAR.ToList();
+                return View(listele);
+            }
+            else
+            {
+                return View("Error");
+            }
+        }
+        public ActionResult BlogDuzen(int id)
+        {
+            Session["uyem"] = 1;
+            if (Session["uyem"] != null)
+            {
+                var listele = db.BLOGLAR.ToList().FirstOrDefault(x =>x.BLOGID == id);
+                return View(listele);
+            }
+            else
+            {
+                return View("Error");
+            }
+        }
+        public ActionResult uyesilkayıt()
+        {
+            if (Session["uyem"] != null)
+            {
+                var listele = db.UYELER.ToList();
                 return View(listele);
             }
             else

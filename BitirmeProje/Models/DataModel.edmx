@@ -15,6 +15,7 @@
           <Property Name="BLOGIMG_2" Type="nvarchar" MaxLength="100" />
           <Property Name="BLOGIMG_3" Type="nvarchar" MaxLength="100" />
           <Property Name="BLOGLOGO" Type="nvarchar" MaxLength="100" />
+          <Property Name="BLOGDATE" Type="date" />
           <Property Name="BLOGYAZI" Type="ntext" />
           <Property Name="BLOGKUCUKYAZI" Type="nvarchar" MaxLength="300" />
           <Property Name="UYEID" Type="int" />
@@ -105,6 +106,7 @@
           <NavigationProperty Name="KATEGORILER" Relationship="Self.FK_BLOGLAR_KATEGORILER" FromRole="BLOGLAR" ToRole="KATEGORILER" />
           <NavigationProperty Name="UYELER" Relationship="Self.FK_BLOGLAR_UYELER" FromRole="BLOGLAR" ToRole="UYELER" />
           <Property Name="BLOGKUCUKYAZI" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="BLOGDATE" Type="DateTime" Precision="0" />
         </EntityType>
         <EntityType Name="KATEGORILER">
           <Key>
@@ -182,6 +184,7 @@
           <EntitySetMapping Name="BLOGLAR">
             <EntityTypeMapping TypeName="DbWebSiteModel.BLOGLAR">
               <MappingFragment StoreEntitySet="BLOGLAR">
+                <ScalarProperty Name="BLOGDATE" ColumnName="BLOGDATE" />
                 <ScalarProperty Name="BLOGKUCUKYAZI" ColumnName="BLOGKUCUKYAZI" />
                 <ScalarProperty Name="BLOGID" ColumnName="BLOGID" />
                 <ScalarProperty Name="BLOGAD" ColumnName="BLOGAD" />
