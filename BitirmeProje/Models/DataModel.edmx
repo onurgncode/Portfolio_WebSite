@@ -1,0 +1,251 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DbWebSiteModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BLOGLAR">
+          <Key>
+            <PropertyRef Name="BLOGID" />
+          </Key>
+          <Property Name="BLOGID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BLOGAD" Type="nvarchar" MaxLength="200" />
+          <Property Name="BLOGIMG_1" Type="nvarchar" MaxLength="100" />
+          <Property Name="BLOGIMG_2" Type="nvarchar" MaxLength="100" />
+          <Property Name="BLOGIMG_3" Type="nvarchar" MaxLength="100" />
+          <Property Name="BLOGLOGO" Type="nvarchar" MaxLength="100" />
+          <Property Name="BLOGYAZI" Type="ntext" />
+          <Property Name="BLOGKUCUKYAZI" Type="nvarchar" MaxLength="300" />
+          <Property Name="UYEID" Type="int" />
+          <Property Name="KATEID" Type="int" />
+        </EntityType>
+        <EntityType Name="KATEGORILER">
+          <Key>
+            <PropertyRef Name="KATEID" />
+          </Key>
+          <Property Name="KATEID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KATEAD" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="MESAJLAR">
+          <Key>
+            <PropertyRef Name="CONID" />
+          </Key>
+          <Property Name="CONID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CONMAIL" Type="nvarchar" MaxLength="200" />
+          <Property Name="CONADSOYAD" Type="nvarchar" MaxLength="200" />
+          <Property Name="CONICERIK" Type="ntext" />
+        </EntityType>
+        <EntityType Name="UYELER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KADI" Type="nvarchar" MaxLength="50" />
+          <Property Name="SIFRE" Type="nvarchar" MaxLength="50" />
+          <Property Name="UYEAD" Type="nvarchar" MaxLength="50" />
+          <Property Name="UYESOYAD" Type="nvarchar" MaxLength="50" />
+          <Property Name="UYEYETKI" Type="int" />
+        </EntityType>
+        <Association Name="FK_BLOGLAR_KATEGORILER">
+          <End Role="KATEGORILER" Type="Self.KATEGORILER" Multiplicity="0..1" />
+          <End Role="BLOGLAR" Type="Self.BLOGLAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KATEGORILER">
+              <PropertyRef Name="KATEID" />
+            </Principal>
+            <Dependent Role="BLOGLAR">
+              <PropertyRef Name="KATEID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BLOGLAR_UYELER">
+          <End Role="UYELER" Type="Self.UYELER" Multiplicity="0..1" />
+          <End Role="BLOGLAR" Type="Self.BLOGLAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UYELER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BLOGLAR">
+              <PropertyRef Name="UYEID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DbWebSiteModelStoreContainer">
+          <EntitySet Name="BLOGLAR" EntityType="Self.BLOGLAR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KATEGORILER" EntityType="Self.KATEGORILER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MESAJLAR" EntityType="Self.MESAJLAR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UYELER" EntityType="Self.UYELER" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_BLOGLAR_KATEGORILER" Association="Self.FK_BLOGLAR_KATEGORILER">
+            <End Role="KATEGORILER" EntitySet="KATEGORILER" />
+            <End Role="BLOGLAR" EntitySet="BLOGLAR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BLOGLAR_UYELER" Association="Self.FK_BLOGLAR_UYELER">
+            <End Role="UYELER" EntitySet="UYELER" />
+            <End Role="BLOGLAR" EntitySet="BLOGLAR" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DbWebSiteModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="BLOGLAR">
+          <Key>
+            <PropertyRef Name="BLOGID" />
+          </Key>
+          <Property Name="BLOGID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BLOGAD" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="BLOGIMG_1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="BLOGIMG_2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="BLOGIMG_3" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="BLOGLOGO" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="BLOGYAZI" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UYEID" Type="Int32" />
+          <Property Name="KATEID" Type="Int32" />
+          <NavigationProperty Name="KATEGORILER" Relationship="Self.FK_BLOGLAR_KATEGORILER" FromRole="BLOGLAR" ToRole="KATEGORILER" />
+          <NavigationProperty Name="UYELER" Relationship="Self.FK_BLOGLAR_UYELER" FromRole="BLOGLAR" ToRole="UYELER" />
+          <Property Name="BLOGKUCUKYAZI" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="KATEGORILER">
+          <Key>
+            <PropertyRef Name="KATEID" />
+          </Key>
+          <Property Name="KATEID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KATEAD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="BLOGLAR" Relationship="Self.FK_BLOGLAR_KATEGORILER" FromRole="KATEGORILER" ToRole="BLOGLAR" />
+        </EntityType>
+        <EntityType Name="MESAJLAR">
+          <Key>
+            <PropertyRef Name="CONID" />
+          </Key>
+          <Property Name="CONID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CONMAIL" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="CONADSOYAD" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="CONICERIK" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="UYELER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UYEAD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UYESOYAD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UYEYETKI" Type="Int32" />
+          <NavigationProperty Name="BLOGLAR" Relationship="Self.FK_BLOGLAR_UYELER" FromRole="UYELER" ToRole="BLOGLAR" />
+          <Property Name="KADI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SIFRE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_BLOGLAR_KATEGORILER">
+          <End Role="KATEGORILER" Type="Self.KATEGORILER" Multiplicity="0..1" />
+          <End Role="BLOGLAR" Type="Self.BLOGLAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KATEGORILER">
+              <PropertyRef Name="KATEID" />
+            </Principal>
+            <Dependent Role="BLOGLAR">
+              <PropertyRef Name="KATEID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BLOGLAR_UYELER">
+          <End Role="UYELER" Type="Self.UYELER" Multiplicity="0..1" />
+          <End Role="BLOGLAR" Type="Self.BLOGLAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UYELER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BLOGLAR">
+              <PropertyRef Name="UYEID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DbWebSiteEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BLOGLAR" EntityType="Self.BLOGLAR" />
+          <EntitySet Name="KATEGORILER" EntityType="Self.KATEGORILER" />
+          <EntitySet Name="MESAJLAR" EntityType="Self.MESAJLAR" />
+          <EntitySet Name="UYELER" EntityType="Self.UYELER" />
+          <AssociationSet Name="FK_BLOGLAR_KATEGORILER" Association="Self.FK_BLOGLAR_KATEGORILER">
+            <End Role="KATEGORILER" EntitySet="KATEGORILER" />
+            <End Role="BLOGLAR" EntitySet="BLOGLAR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BLOGLAR_UYELER" Association="Self.FK_BLOGLAR_UYELER">
+            <End Role="UYELER" EntitySet="UYELER" />
+            <End Role="BLOGLAR" EntitySet="BLOGLAR" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DbWebSiteModelStoreContainer" CdmEntityContainer="DbWebSiteEntities">
+          <EntitySetMapping Name="BLOGLAR">
+            <EntityTypeMapping TypeName="DbWebSiteModel.BLOGLAR">
+              <MappingFragment StoreEntitySet="BLOGLAR">
+                <ScalarProperty Name="BLOGKUCUKYAZI" ColumnName="BLOGKUCUKYAZI" />
+                <ScalarProperty Name="BLOGID" ColumnName="BLOGID" />
+                <ScalarProperty Name="BLOGAD" ColumnName="BLOGAD" />
+                <ScalarProperty Name="BLOGIMG_1" ColumnName="BLOGIMG_1" />
+                <ScalarProperty Name="BLOGIMG_2" ColumnName="BLOGIMG_2" />
+                <ScalarProperty Name="BLOGIMG_3" ColumnName="BLOGIMG_3" />
+                <ScalarProperty Name="BLOGLOGO" ColumnName="BLOGLOGO" />
+                <ScalarProperty Name="BLOGYAZI" ColumnName="BLOGYAZI" />
+                <ScalarProperty Name="UYEID" ColumnName="UYEID" />
+                <ScalarProperty Name="KATEID" ColumnName="KATEID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KATEGORILER">
+            <EntityTypeMapping TypeName="DbWebSiteModel.KATEGORILER">
+              <MappingFragment StoreEntitySet="KATEGORILER">
+                <ScalarProperty Name="KATEID" ColumnName="KATEID" />
+                <ScalarProperty Name="KATEAD" ColumnName="KATEAD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MESAJLAR">
+            <EntityTypeMapping TypeName="DbWebSiteModel.MESAJLAR">
+              <MappingFragment StoreEntitySet="MESAJLAR">
+                <ScalarProperty Name="CONID" ColumnName="CONID" />
+                <ScalarProperty Name="CONMAIL" ColumnName="CONMAIL" />
+                <ScalarProperty Name="CONADSOYAD" ColumnName="CONADSOYAD" />
+                <ScalarProperty Name="CONICERIK" ColumnName="CONICERIK" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UYELER">
+            <EntityTypeMapping TypeName="DbWebSiteModel.UYELER">
+              <MappingFragment StoreEntitySet="UYELER">
+                <ScalarProperty Name="SIFRE" ColumnName="SIFRE" />
+                <ScalarProperty Name="KADI" ColumnName="KADI" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="UYEAD" ColumnName="UYEAD" />
+                <ScalarProperty Name="UYESOYAD" ColumnName="UYESOYAD" />
+                <ScalarProperty Name="UYEYETKI" ColumnName="UYEYETKI" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

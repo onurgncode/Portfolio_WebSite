@@ -12,7 +12,7 @@ namespace BitirmeProje.Controllers
         {
             return View();
         }
-
+        
         
     }
 }
