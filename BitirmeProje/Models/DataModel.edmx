@@ -49,7 +49,9 @@
           <Property Name="UYEYETKI" Type="int" />
         </EntityType>
         <Association Name="FK_BLOGLAR_KATEGORILER">
-          <End Role="KATEGORILER" Type="Self.KATEGORILER" Multiplicity="0..1" />
+          <End Role="KATEGORILER" Type="Self.KATEGORILER" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="BLOGLAR" Type="Self.BLOGLAR" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="KATEGORILER">
@@ -61,7 +63,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_BLOGLAR_UYELER">
-          <End Role="UYELER" Type="Self.UYELER" Multiplicity="0..1" />
+          <End Role="UYELER" Type="Self.UYELER" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="BLOGLAR" Type="Self.BLOGLAR" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="UYELER">

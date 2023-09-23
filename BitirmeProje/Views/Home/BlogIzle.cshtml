@@ -1,0 +1,29 @@
+﻿@model BitirmeProje.Models.BLOGLAR
+
+@{
+    ViewBag.Title = "BlogIzle";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+<h1>@ViewBag.err</h1>
+<div>
+    <dl class="dl-horizontal">
+        <dd>
+            <b>Kategori : </b>@ViewBag.kate  <b>Yazar : </b>@ViewBag.yazar <b>Tarih :</b> @Html.DisplayFor(model => model.BLOGDATE)
+        </dd>
+        <dd>
+            <h1><img src="~/images/@Html.DisplayFor(model => model.BLOGLOGO)" width="100%" /></h1>
+        </dd>
+        <dd>
+            <h1> @Html.DisplayFor(model => model.BLOGAD)</h1>
+        </dd>
+        <hr />
+        <dd>
+            @Html.Raw(ViewBag.yazial)
+        </dd>
+        <dd>
+
+        </dd>
+
+    </dl>
+</div>
+

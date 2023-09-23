@@ -8,7 +8,7 @@
 <h2>BlogListele</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Yeni Oluştur", "Olustur",null,new { @class="btn btn-danger"})
 </p>
 <table class="table table-active">
     <tr>
@@ -42,9 +42,10 @@
             @Html.DisplayFor(modelItem => item.UYELER.UYEAD)
         </td>
         <td>
-            @Html.ActionLink("Edit", "BlogDuzen", new { id=item.BLOGID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.BLOGID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.BLOGID })
+            
+            <a href="@Url.Action("Blogsil",new { id=item.BLOGID })" class="btn btn-danger">Delete</a> 
+            <a href="@Url.Action("BlogDuzen",new { id=item.BLOGID })" class="btn btn-danger">Düzenle</a>
+            <a target="_blank" href="@Url.Action("BlogIzle","Home",new { id=item.BLOGID })" class="btn btn-danger">Göster</a>
         </td>
     </tr>
 }

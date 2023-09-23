@@ -1,0 +1,34 @@
+﻿@model IEnumerable<BitirmeProje.Models.MESAJLAR>
+
+<table class="table text-start align-middle table-bordered table-hover mb-0">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CONMAIL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CONADSOYAD)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CONICERIK)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CONMAIL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CONADSOYAD)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CONICERIK)
+        </td>
+        <td>
+            @Html.ActionLink("Mesaj Oku", "MesajSil", new { id = item.CONID })
+        </td>
+    </tr>
+    }
+</table>
+

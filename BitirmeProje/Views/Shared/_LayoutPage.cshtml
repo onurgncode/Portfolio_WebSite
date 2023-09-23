@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="~/Font/flaticon/font/flaticon.css">
 
     
-    <title>Snap &mdash; Free Photography Website Template by Untree.co</title>
+    <title>Hoşgeldiniz Ben Onur !</title>
 
 
 </head>
@@ -45,26 +45,29 @@
 
         <header class="header-bar d-flex d-lg-block align-items-center site-navbar-target" data-aos="fade-right">
             <div class="site-logo">
-                <a href="index.html">Snap</a>
+                <a href="@Url.Action("index")">Onur Doğan</a>
             </div>
 
             <div class="d-inline-block d-lg-none ml-md-0 ml-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle "><span class="icon-menu h3"></span></a></div>
 
             <div class="main-menu">
                 <ul class="js-clone-nav">
-                    <li><a href="#section-home" class="nav-link">Home</a></li>
+                    <li><a href="#section-home" class="nav-link">Yukarı</a></li>
+                    <a href="@Url.Action("index")" class="nav-link">Home</a>
                     @if (Session["uyem"] == null)
                     {
-                        @Html.ActionLink("Giriş Yap","login", "Admin", null, new { @class="nav-link"})
+
+                        <li><a href="@Url.Action("login","Admin")" class="nav-link">Giriş yap</a></li>
                     }
                     else
                     {
-                        @Html.ActionLink("Admin","index", "Admin", null, new { @class = "nav-link" })
+
+                        <li><a href="@Url.Action("index","Admin")" class="nav-link">Admin Sayfası</a></li>
                     }
-                    <li><a href="#section-photos" class="nav-link">Photos</a></li>
-                    <li><a href="#section-about" class="nav-link">About</a></li>
-                    <li><a href="#section-blog" class="nav-link">Blog</a></li>
-                    <li><a href="#section-contact" class="nav-link">Contact</a></li>
+
+                    <li><a href="/Home/Index#section-about" class="nav-link">Bilgiler</a></li>
+                    <li><a href="/Home/Index#section-blog" class="nav-link">Blog</a></li>
+                    <li><a href="/Home/Index#section-contact" class="nav-link">İletişim</a></li>
                 </ul>
                 <ul class="social js-clone-nav">
                     <li><a href="#"><span class="icon-instagram"></span></a></li>
@@ -81,11 +84,13 @@
             <div class="container-fluid site-section">
 
                 @RenderBody()
+
+                @{Html.RenderAction("Mesaj", "Home");}
                 <div class="row justify-content-center">
                     <div class="col-md-12 text-center py-5">
                         <p>
                             Copyright &copy;
-                            <script>document.write(new Date().getFullYear());</script>. All Rights Reserved. &mdash; Designed with love by <a href="https://untree.co">Untree.co</a> Distributed By <a href="https://themewagon.com">ThemeWagon</a><!-- License information: https://untree.co/license/ -->
+                            <script>document.write(new Date().getFullYear());</script><i>backend developer by Onur Doğan</i> All Rights Reserved. &mdash; Designed with love by <a href="https://untree.co">Untree.co</a> </a><!-- License information: https://untree.co/license/ -->
                         </p>
                     </div>
                 </div>

@@ -1,0 +1,73 @@
+﻿@model PagedList.IPagedList<BitirmeProje.Models.BLOGLAR>
+@using PagedList.Mvc
+@using BitirmeProje.Models; 
+@{
+    ViewBag.Title = "BlogKontrol";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<h2>Tüm Bloglar</h2>
+
+
+<table class="table">
+    <tr>
+        <th>Oku</th>
+        <th>
+            Resim
+
+        </th>
+        <th>
+
+            Adı
+        </th>
+
+        <th>
+            Küçük yazı
+        </th>
+        <th>
+            Ne zaman Oluşturuldu
+        </th>
+        <th>
+            Kategorisi
+        </th>
+        <th>
+            Oluşturan kişi
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        
+        <tr>
+            <td><a href="@Url.Action("BlogIzle",new { id = item.BLOGID})" class="btn" btn-danger>+Oku</a></td>
+            <td>
+                <div class="mr-0 mr-md-5 mb-3 img-wrap"> <img src="~/images/@item.BLOGLOGO"  class="img-fluid mb-0" /></div>
+
+</td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BLOGAD)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BLOGKUCUKYAZI)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BLOGDATE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KATEGORILER.KATEAD)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UYELER.UYEAD)
+            </td>
+
+        </tr>
+        
+    }
+    <div class="col-12 text-center">
+        <div class="custom-pagination">
+            @Html.PagedListPager(Model, page => Url.Action("BlogKontrol", new { page, pageSize = Model.PageSize }))
+
+        </div>
+    </div>
+</table>

@@ -1,0 +1,105 @@
+﻿@model BitirmeProje.Models.BLOGLAR
+
+@{
+    ViewBag.Title = "Blogsil";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Blogsil</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>BLOGLAR</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BLOGAD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BLOGAD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BLOGIMG_1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BLOGIMG_1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BLOGIMG_2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BLOGIMG_2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BLOGIMG_3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BLOGIMG_3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BLOGLOGO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BLOGLOGO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BLOGYAZI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BLOGYAZI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BLOGKUCUKYAZI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BLOGKUCUKYAZI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BLOGDATE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BLOGDATE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KATEGORILER.KATEAD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KATEGORILER.KATEAD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UYELER.UYEAD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UYELER.UYEAD)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            
+        </div>
+    }
+</div>
